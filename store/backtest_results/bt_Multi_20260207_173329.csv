@@ -1,0 +1,1 @@
+trade_id,timestamp,symbol,side,price,quantity,commission,strategy_name,entry_reason,exit_reason,pnl,roi,holdings_after
