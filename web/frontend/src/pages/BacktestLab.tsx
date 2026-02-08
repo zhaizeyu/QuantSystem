@@ -12,6 +12,8 @@ export default function BacktestLab() {
     equity_curve: { date: string; equity: number }[];
     trades: Record<string, unknown>[];
   } | null>(null);
+  const [detailLoading, setDetailLoading] = useState(false);
+  const [detailError, setDetailError] = useState<string | null>(null);
   const [kline, setKline] = useState<{ date: string; open: number; high: number; low: number; close: number; volume: number }[]>([]);
   const [symbol, setSymbol] = useState("AAPL");
 
@@ -25,12 +27,32 @@ export default function BacktestLab() {
   useEffect(() => {
     if (!selectedId) {
       setDetail(null);
+      setDetailError(null);
       return;
     }
+    setDetailLoading(true);
+    setDetailError(null);
     fetch(`${API}/backtest/detail/${encodeURIComponent(selectedId)}`)
-      .then((r) => r.json())
-      .then(setDetail)
-      .catch(() => setDetail(null));
+      .then((r) => {
+        if (!r.ok) throw new Error(r.status === 404 ? "未找到该回测记录" : `请求失败 ${r.status}`);
+        return r.json();
+      })
+      .then((d) => {
+        const tradesList = Array.isArray(d.trades) ? d.trades : [];
+        const equityList = Array.isArray(d.equity_curve) ? d.equity_curve : [];
+        setDetail({ equity_curve: equityList, trades: tradesList });
+        setDetailError(null);
+        // 根据交割单中的标的自动更新 K 线标的（取首笔交易的 symbol，多标的时以首笔为准）
+        if (tradesList.length > 0 && tradesList[0].symbol) {
+          const sym = String(tradesList[0].symbol).trim();
+          if (sym) setSymbol(sym);
+        }
+      })
+      .catch((e) => {
+        setDetail(null);
+        setDetailError(e instanceof Error ? e.message : "加载失败");
+      })
+      .finally(() => setDetailLoading(false));
   }, [selectedId]);
 
   useEffect(() => {
@@ -41,8 +63,8 @@ export default function BacktestLab() {
       .catch(() => setKline([]));
   }, [symbol]);
 
-  const trades = detail?.trades ?? [];
-  const equityCurve = detail?.equity_curve ?? [];
+  const trades = Array.isArray(detail?.trades) ? detail!.trades : [];
+  const equityCurve = Array.isArray(detail?.equity_curve) ? detail!.equity_curve : [];
   const tradeMarkers =
     trades.length > 0 && kline.length > 0
       ? trades.map((t) => {
@@ -72,6 +94,8 @@ export default function BacktestLab() {
             ))}
           </select>
         </label>
+        {detailError && <span className="text-red-400 text-sm">{detailError}</span>}
+        {detailLoading && selectedId && <span className="text-slate-500 text-sm">加载中…</span>}
         <label className="text-slate-400 text-sm">
           K 线标的
           <input
@@ -84,8 +108,8 @@ export default function BacktestLab() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2 rounded-lg border border-slate-700 bg-slate-800/50 overflow-hidden">
-          <div className="px-4 py-2 border-b border-slate-700 text-slate-400 text-sm">K 线 + 买卖标记</div>
-          <div className="h-[400px]">
+          <div className="px-4 py-2 border-b border-slate-700 text-slate-400 text-sm">K 线 + MA / BOLL / 买卖标记 · 副图 RSI / MACD</div>
+          <div className="min-h-[520px] overflow-auto">
             <KlineChart data={kline} markers={tradeMarkers} />
           </div>
         </div>

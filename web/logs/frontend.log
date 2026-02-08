@@ -1,0 +1,121 @@
+
+> quantsystem-frontend@0.1.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 428 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> quantsystem-frontend@0.1.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 87 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> quantsystem-frontend@0.1.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 83 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+7:49:59 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+7:50:00 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+7:50:04 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+7:50:09 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+7:50:14 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+7:50:19 PM [vite] hmr update /src/components/EquityCurve.tsx, /src/index.css
+7:50:23 PM [vite] hmr update /src/components/EquityCurve.tsx, /src/index.css
+
+> quantsystem-frontend@0.1.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 84 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+7:53:49 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+7:59:39 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+7:59:48 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+7:59:49 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+7:59:52 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+7:59:53 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+7:59:55 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:00:08 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+8:00:27 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+
+> quantsystem-frontend@0.1.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 91 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+8:15:11 PM [vite] hmr update /src/index.css, /src/components/KlineChart.tsx
+8:15:15 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:15:18 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:15:23 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:15:29 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:20:50 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:20:56 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:20:59 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:21:02 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:21:08 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+8:24:59 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:02 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:03 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:06 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:09 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:10 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:11 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:13 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:25:24 PM [vite] hmr update /src/components/EquityCurve.tsx, /src/index.css
+8:29:20 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:29:24 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:29:28 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:29:30 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:29:31 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:29:34 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:29:36 PM [vite] hmr update /src/components/EquityCurve.tsx, /src/index.css
+8:35:54 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:36:03 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:36:09 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:48:49 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:48:49 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:48:51 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:52:59 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:53:02 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:53:30 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+8:53:37 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+10:14:45 PM [vite] hmr update /src/index.css, /src/components/KlineChart.tsx
+10:39:43 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+10:39:43 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+10:39:43 PM [vite] hmr update /src/components/EquityCurve.tsx, /src/index.css
+10:39:43 PM [vite] hmr update /src/index.css, /src/components/KlineChart.tsx
+10:53:03 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+10:53:03 PM [vite] hmr update /src/components/EquityCurve.tsx, /src/index.css
+10:53:03 PM [vite] hmr update /src/pages/BacktestLab.tsx, /src/index.css
+10:53:03 PM [vite] hmr update /src/index.css, /src/components/KlineChart.tsx
+10:53:03 PM [vite] hmr update /src/index.css, /src/components/KlineChart.tsx
+11:14:17 PM [vite] hmr update /src/index.css, /src/components/KlineChart.tsx
+11:14:22 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+11:14:23 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+11:24:02 PM [vite] hmr update /src/components/KlineChart.tsx, /src/index.css
+11:33:02 PM [vite] hmr update /src/index.css, /src/components/KlineChart.tsx
+
+> quantsystem-frontend@0.1.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 88 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

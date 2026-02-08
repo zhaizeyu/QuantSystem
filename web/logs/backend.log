@@ -1,0 +1,1478 @@
+INFO:     Will watch for changes in these directories: ['/Users/zhaizeyu/Documents/github/QuantSystem']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [95767] using WatchFiles
+INFO:     Started server process [95793]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['/Users/zhaizeyu/Documents/github/QuantSystem']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [96097] using WatchFiles
+INFO:     Started server process [96118]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55231 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55232 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55234 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55233 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55235 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55236 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55238 - "GET /api/backtest/detail/bt_Default_20260207_173826.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55240 - "GET /api/market/kline/N HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55242 - "GET /api/market/kline/NV HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55244 - "GET /api/market/kline/NVD HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55246 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55254 - "GET /api/backtest/detail/bt_Default_20260207_183207.csv HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 107, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 460, in app
+    response = actual_response_class(content, **response_args)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 189, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 46, in __init__
+    self.body = self.render(content)
+                ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 192, in render
+    return json.dumps(
+           ~~~~~~~~~~^
+        content,
+        ^^^^^^^^
+    ...<3 lines>...
+        separators=(",", ":"),
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ).encode("utf-8")
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+ValueError: Out of range float values are not JSON compliant: nan
+when serializing dict item 'exit_reason'
+when serializing list item 0
+when serializing dict item 'trades'
+INFO:     127.0.0.1:55256 - "GET /api/backtest/detail/bt_Oversold_MA_20260207_172914.csv HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 107, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 460, in app
+    response = actual_response_class(content, **response_args)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 189, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 46, in __init__
+    self.body = self.render(content)
+                ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 192, in render
+    return json.dumps(
+           ~~~~~~~~~~^
+        content,
+        ^^^^^^^^
+    ...<3 lines>...
+        separators=(",", ":"),
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ).encode("utf-8")
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+ValueError: Out of range float values are not JSON compliant: nan
+when serializing dict item 'exit_reason'
+when serializing list item 0
+when serializing dict item 'trades'
+INFO:     127.0.0.1:55258 - "GET /api/market/kline/NVD HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55260 - "GET /api/market/kline/NV HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55262 - "GET /api/market/kline/N HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55264 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55266 - "GET /api/market/kline/AAP HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55268 - "GET /api/market/kline/AA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55270 - "GET /api/market/kline/A HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55272 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55274 - "GET /api/market/kline/AAP HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55276 - "GET /api/market/kline/AA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55278 - "GET /api/market/kline/A HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55280 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55282 - "GET /api/market/kline/AAP HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55284 - "GET /api/market/kline/AA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55286 - "GET /api/backtest/detail/bt_Multi_20260207_173329.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55288 - "GET /api/backtest/detail/bt_Oversold_MA_20260207_172914.csv HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 107, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 460, in app
+    response = actual_response_class(content, **response_args)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 189, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 46, in __init__
+    self.body = self.render(content)
+                ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 192, in render
+    return json.dumps(
+           ~~~~~~~~~~^
+        content,
+        ^^^^^^^^
+    ...<3 lines>...
+        separators=(",", ":"),
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ).encode("utf-8")
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+ValueError: Out of range float values are not JSON compliant: nan
+when serializing dict item 'exit_reason'
+when serializing list item 0
+when serializing dict item 'trades'
+INFO:     127.0.0.1:55291 - "GET /api/market/kline/A HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55293 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55295 - "GET /api/market/kline/AAPLN HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55297 - "GET /api/market/kline/AAPLNV HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55299 - "GET /api/market/kline/AAPLNVD HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55301 - "GET /api/market/kline/AAPLNVDA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55303 - "GET /api/market/kline/AAPNVDA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55305 - "GET /api/market/kline/AANVDA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55307 - "GET /api/market/kline/ANVDA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55309 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55318 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55324 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55323 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55327 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55328 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/Users/zhaizeyu/Documents/github/QuantSystem']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [97788] using WatchFiles
+INFO:     Started server process [97809]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55338 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55339 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55341 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55342 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55348 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55349 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55351 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55350 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55354 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55355 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55357 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/applications.py", line 1138, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 121, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 107, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/fastapi/routing.py", line 460, in app
+    response = actual_response_class(content, **response_args)
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 189, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 46, in __init__
+    self.body = self.render(content)
+                ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zhaizeyu/Documents/github/QuantSystem/.venv/lib/python3.14/site-packages/starlette/responses.py", line 192, in render
+    return json.dumps(
+           ~~~~~~~~~~^
+        content,
+        ^^^^^^^^
+    ...<3 lines>...
+        separators=(",", ":"),
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ).encode("utf-8")
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+ValueError: Out of range float values are not JSON compliant: nan
+when serializing dict item 'exit_reason'
+when serializing list item 0
+when serializing dict item 'trades'
+INFO:     127.0.0.1:55359 - "GET /api/market/kline/AAP HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55361 - "GET /api/market/kline/AA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55363 - "GET /api/market/kline/A HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55365 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55367 - "GET /api/market/kline/AAP HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55369 - "GET /api/market/kline/AA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55371 - "GET /api/market/kline/A HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55373 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55375 - "GET /api/market/kline/AAP HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55377 - "GET /api/market/kline/AA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55379 - "GET /api/market/kline/A HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55381 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55383 - "GET /api/market/kline/AAP HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55385 - "GET /api/market/kline/AA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55387 - "GET /api/market/kline/A HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55389 - "GET /api/market/kline/AN HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55391 - "GET /api/market/kline/ANV HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55393 - "GET /api/market/kline/ANVD HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55395 - "GET /api/market/kline/ANVDA HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55397 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55399 - "GET /api/market/kline/N HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55401 - "GET /api/market/kline/NV HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55403 - "GET /api/market/kline/NVD HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55405 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'web/backend/routers/backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [97809]
+INFO:     Started server process [99239]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55442 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55441 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55445 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55446 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55451 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55450 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55456 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55455 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55461 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55460 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55464 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55470 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55468 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55469 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55478 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55479 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55483 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55482 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55486 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55487 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55493 - "GET /api/market/kline/N HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55495 - "GET /api/market/kline/NV HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55497 - "GET /api/market/kline/NVD HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55499 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/Users/zhaizeyu/Documents/github/QuantSystem']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [409] using WatchFiles
+INFO:     Started server process [437]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55509 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55508 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55510 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55511 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55529 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55530 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55531 - "GET /api/live/snapshot HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55535 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55534 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55538 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55539 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55541 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55563 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55561 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55562 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55565 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55581 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55580 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55582 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55583 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55594 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55593 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55595 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55596 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55597 - "GET /api/market/kline/N HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55598 - "GET /api/market/kline/NV HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55600 - "GET /api/market/kline/NVD HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55602 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55604 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55710 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55709 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55712 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55713 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55714 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/Users/zhaizeyu/Documents/github/QuantSystem']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [8324] using WatchFiles
+INFO:     Started server process [8345]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55810 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55812 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55809 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55811 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55814 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55815 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55816 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55817 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55820 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55822 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55824 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55826 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55953 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55952 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55957 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55958 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55959 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55956 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55962 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55963 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55970 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55972 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55969 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55971 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55982 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55984 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56046 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56045 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56048 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56049 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56051 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56053 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56055 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56057 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8345]
+INFO:     Started server process [21773]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:56269 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56268 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56271 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56272 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56274 - "GET /api/backtest/detail/bt_Default_20260207_194553.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56276 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56279 - "GET /api/backtest/detail/bt_Default_20260207_204536.csv HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'core/types.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21773]
+INFO:     Started server process [32812]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32812]
+INFO:     Started server process [32823]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32823]
+INFO:     Started server process [32853]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32853]
+INFO:     Started server process [32940]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32940]
+INFO:     Started server process [33011]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33011]
+INFO:     Started server process [33054]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33054]
+INFO:     Started server process [33146]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33146]
+INFO:     Started server process [33169]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33169]
+INFO:     Started server process [33180]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33180]
+INFO:     Started server process [41641]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41641]
+INFO:     Started server process [41647]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41647]
+INFO:     Started server process [41662]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41662]
+INFO:     Started server process [41734]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41734]
+INFO:     Started server process [47348]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [47348]
+INFO:     Started server process [47387]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [47387]
+INFO:     Started server process [47396]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [47396]
+INFO:     Started server process [49273]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [49273]
+INFO:     Started server process [49464]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [49464]
+INFO:     Started server process [49526]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [49526]
+INFO:     Started server process [51460]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:56889 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56888 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56891 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56892 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56895 - "GET /api/backtest/detail/bt_Default_20260207_215655.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56927 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56926 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56929 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56930 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56932 - "GET /api/backtest/detail/bt_Default_20260207_215912.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56934 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [51460]
+INFO:     Started server process [54099]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [54099]
+INFO:     Started server process [55167]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [55167]
+INFO:     Started server process [55224]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:56989 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56988 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56991 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56992 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56996 - "GET /api/backtest/detail/bt_Default_20260207_220413.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56998 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/sell/stop_loss_pct.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [55224]
+INFO:     Started server process [56825]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/stop_loss_pct.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [56825]
+INFO:     Started server process [56939]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57086 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57085 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57088 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57089 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57091 - "GET /api/backtest/detail/bt_Default_20260207_220945.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57093 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57117 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57116 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57119 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57120 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57122 - "GET /api/backtest/detail/bt_Default_20260207_221054.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57124 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/indicators.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [56939]
+INFO:     Started server process [61686]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57182 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57181 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57184 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57185 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57187 - "GET /api/backtest/detail/bt_Default_20260207_221646.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57189 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61686]
+INFO:     Started server process [64883]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57311 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57310 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57313 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57314 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57316 - "GET /api/backtest/detail/bt_Default_20260207_222242.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57318 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [64883]
+INFO:     Started server process [66253]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [66253]
+INFO:     Started server process [66316]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [66316]
+INFO:     Started server process [66991]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57388 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57387 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57390 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57391 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57393 - "GET /api/backtest/detail/bt_Default_20260207_222807.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57395 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [66991]
+INFO:     Started server process [68552]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57444 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57443 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57446 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57447 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57449 - "GET /api/backtest/detail/bt_Default_20260207_223048.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57451 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [68552]
+INFO:     Started server process [70114]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57547 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57548 - "GET /api/backtest/detail/bt_Default_20260207_223048.csv HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57549 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/indicators.py', 'strategies/sell/trailing_take_profit_sell.py', 'backtest/engine.py', 'strategies/factory.py', 'web/backend/routers/backtest.py', 'strategies/sell/stop_loss_pct.py', 'core/types.py', 'core/backtest_config.py', 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70114]
+INFO:     Started server process [72356]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72356]
+INFO:     Started server process [72554]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72554]
+INFO:     Started server process [77005]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77005]
+INFO:     Started server process [77011]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77011]
+INFO:     Started server process [77048]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77048]
+INFO:     Started server process [77094]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57657 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57656 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57659 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57660 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57663 - "GET /api/backtest/detail/bt_Default_20260207_225236.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57665 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/indicators.py', 'strategies/buy/oversold_factors.py', 'core/backtest_config.py', 'strategies/factory.py', 'strategies/sell/trailing_take_profit_sell.py', 'strategies/sell/stop_loss_pct.py', 'backtest/engine.py', 'scripts/run_backtest.py', 'core/types.py', 'web/backend/routers/backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77094]
+INFO:     Started server process [78049]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57675 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57676 - "GET /api/backtest/detail/bt_Default_20260207_225236.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57677 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57794 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57793 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57796 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57797 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57800 - "GET /api/backtest/detail/bt_Default_20260207_230155.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57802 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/indicators.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78049]
+INFO:     Started server process [80204]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80204]
+INFO:     Started server process [80372]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80372]
+INFO:     Started server process [80457]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57911 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57910 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57914 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57915 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57934 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57933 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57935 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57937 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57939 - "GET /api/backtest/detail/bt_Default_20260207_231500.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57941 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57974 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57973 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57976 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57977 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57979 - "GET /api/backtest/detail/bt_Default_20260207_232010.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57981 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58042 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58041 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58044 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58045 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58047 - "GET /api/backtest/detail/bt_Default_20260207_232455.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58049 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58070 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58069 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58071 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58073 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58075 - "GET /api/backtest/detail/bt_Default_20260207_232616.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58077 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58086 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58085 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58088 - "GET /api/market/kline/AAPL HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58089 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58091 - "GET /api/backtest/detail/bt_Default_20260207_232646.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58093 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80457]
+INFO:     Started server process [88178]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88178]
+INFO:     Started server process [88206]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88206]
+INFO:     Started server process [88256]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88256]
+INFO:     Started server process [89595]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89595]
+INFO:     Started server process [89622]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89622]
+INFO:     Started server process [89640]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89640]
+INFO:     Started server process [89660]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89660]
+INFO:     Started server process [89685]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89685]
+INFO:     Started server process [89766]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89766]
+INFO:     Started server process [89793]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/indicators.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89793]
+INFO:     Started server process [89907]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58262 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58264 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58263 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58266 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58360 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58362 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58361 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58364 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58366 - "GET /api/backtest/detail/bt_Default_20260207_233740.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58368 - "GET /api/market/kline/XBI HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58370 - "GET /api/backtest/detail/bt_Default_20260207_233734.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58372 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58413 - "GET /api/backtest/detail/bt_Default_20260207_233729.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58415 - "GET /api/market/kline/QQQ HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89907]
+INFO:     Started server process [98485]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58469 - "GET /api/backtest/detail/bt_Default_20260207_233721.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58471 - "GET /api/market/kline/GOOGL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58492 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58493 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58494 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58496 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58498 - "GET /api/backtest/detail/bt_Default_AAPL_20260208_002043.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58523 - "GET /api/backtest/detail/bt_Default_GOOGL_20260208_002047.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58525 - "GET /api/market/kline/GOOGL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58527 - "GET /api/backtest/detail/bt_Default_XBI_20260208_002107.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58529 - "GET /api/market/kline/XBI HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [98485]
+INFO:     Started server process [5690]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5690]
+INFO:     Started server process [5703]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5703]
+INFO:     Started server process [5791]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5791]
+INFO:     Started server process [5804]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5804]
+INFO:     Started server process [7712]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58648 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58650 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58649 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58652 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58654 - "GET /api/backtest/detail/bt_Default_XBI_20260208_003524.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58656 - "GET /api/market/kline/XBI HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58675 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_003519.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58677 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58696 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58697 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58698 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58700 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58754 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58756 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58755 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58758 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58760 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_004410.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58762 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7712]
+INFO:     Started server process [15639]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15639]
+INFO:     Started server process [17518]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58835 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58837 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58836 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58839 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/Users/zhaizeyu/Documents/github/QuantSystem']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [18973] using WatchFiles
+INFO:     Started server process [18979]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58844 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58846 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58845 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58848 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58855 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58857 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58856 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58859 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58865 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_005110.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58867 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58889 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58890 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58891 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58893 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58895 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_005347.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58897 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58985 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58986 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58987 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58989 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58996 - "GET /api/backtest/detail/bt_Default_QQQ_20260208_005813.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58998 - "GET /api/market/kline/QQQ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59027 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59028 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59029 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59031 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62616 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62618 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62617 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62620 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62622 - "GET /api/backtest/detail/bt_Default_QQQ_20260208_010211.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62624 - "GET /api/market/kline/QQQ HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [18979]
+INFO:     Started server process [20757]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20757]
+INFO:     Started server process [20798]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20798]
+INFO:     Started server process [20814]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20814]
+INFO:     Started server process [20887]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/__init__.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20887]
+INFO:     Started server process [20918]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62730 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62732 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62731 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62734 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62736 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_101403.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62738 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20918]
+INFO:     Started server process [24410]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24410]
+INFO:     Started server process [24426]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24426]
+INFO:     Started server process [24452]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62791 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62793 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62792 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62795 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62797 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_102035.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62799 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62828 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62829 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62830 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62832 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62835 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_102319.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62837 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62854 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62856 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62855 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62858 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62860 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_102354.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62862 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24452]
+INFO:     Started server process [27549]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27549]
+INFO:     Started server process [27555]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62895 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62897 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62896 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62899 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62901 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_102610.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62903 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62940 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62941 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62943 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62945 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27555]
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Started server process [31705]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Started server process [31706]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:63033 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63035 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63034 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63037 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63039 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_103538.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63041 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63072 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63074 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63073 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63076 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63078 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_103911.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63080 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63131 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63133 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63132 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63135 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63137 - "GET /api/backtest/detail/bt_Default_QQQ_20260208_104052.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63139 - "GET /api/market/kline/QQQ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63141 - "GET /api/backtest/detail/bt_Default_AAPL_20260208_104045.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63143 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63152 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_104050.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63154 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_trend_pullback_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [31706]
+INFO:     Started server process [37293]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37293]
+INFO:     Started server process [37346]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37346]
+INFO:     Started server process [37371]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:63218 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63220 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63219 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63222 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63224 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_105010.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63226 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/indicators.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37371]
+INFO:     Started server process [39268]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_trend_pullback_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39268]
+INFO:     Started server process [39606]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_trend_pullback_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39606]
+INFO:     Started server process [39688]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_trend_pullback_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39688]
+INFO:     Started server process [39703]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_trend_pullback_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39703]
+INFO:     Started server process [39719]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:63299 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63301 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63300 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63303 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63305 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_105749.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63307 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63586 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63587 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63588 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63590 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63592 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_105749.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63594 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/sell/boll_upper_break_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39719]
+INFO:     Started server process [61716]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61716]
+INFO:     Started server process [72085]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72085]
+INFO:     Started server process [72111]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72111]
+INFO:     Started server process [72122]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72122]
+INFO:     Started server process [72238]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72238]
+INFO:     Started server process [72258]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { createChart, IChartApi, ISeriesApi, LineData } from "lightweight-charts";
+import { createChart, IChartApi, LineData, LineStyle } from "lightweight-charts";
 
 interface EquityCurveProps {
   data: { date: string; equity: number }[];
@@ -13,14 +13,28 @@ export default function EquityCurve({ data }: EquityCurveProps) {
     if (!containerRef.current) return;
     const chart = createChart(containerRef.current, {
       layout: { background: { color: "#1e293b" }, textColor: "#94a3b8" },
-      grid: { vertLines: { color: "#334155" }, horzLines: { color: "#334155" } },
+      grid: { vertLines: { visible: false }, horzLines: { visible: false } },
+      crosshair: {
+        horzLine: { visible: true, style: LineStyle.Solid, labelVisible: true },
+        vertLine: { visible: true, style: LineStyle.Solid, labelVisible: true },
+      },
       width: containerRef.current.clientWidth,
       height: 400,
       timeScale: { timeVisible: true, secondsVisible: false, borderColor: "#475569" },
       rightPriceScale: { borderColor: "#475569" },
     });
-    const lineSeries = chart.addLineSeries({ color: "#f59e0b", lineWidth: 2 });
-    const parsed: LineData[] = data.map((d) => ({ time: d.date, value: Number(d.equity) }));
+    const lineSeries = chart.addLineSeries({
+      color: "#f59e0b",
+      lineWidth: 2,
+      lastValueVisible: false,
+      priceLineVisible: false,
+    });
+    const parsed: LineData[] = data
+      .filter((d) => d != null && (d as { date?: string }).date != null)
+      .map((d) => ({
+        time: String((d as { date?: string }).date).slice(0, 10),
+        value: Number((d as { equity?: number }).equity) || 0,
+      }));
     if (parsed.length > 0) {
       lineSeries.setData(parsed);
       chart.timeScale().fitContent();

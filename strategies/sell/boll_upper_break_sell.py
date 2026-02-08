@@ -23,12 +23,11 @@ class BollUpperBreakSellStrategy(BaseSellStrategy):
         if current_position <= 0:
             return self._hold("空仓")
         close_series = history_df["close"].astype(float)
-        current_close = float(current_bar.get("close", 0))
-        # 含当前 K 的序列算布林带，与当前收盘比较
-        full_close = pd.concat([close_series, pd.Series([current_close])], ignore_index=True)
-        if len(full_close) < self.period:
+        # history_df 已含当日 K 线，直接用其算布林带，避免重复拼接导致上轨被抬高
+        if len(close_series) < self.period:
             return self._hold("数据不足")
-        _, upper, _ = bollinger_bands(full_close, period=self.period, num_std=self.num_std)
+        _, upper, _ = bollinger_bands(close_series, period=self.period, num_std=self.num_std)
+        current_close = float(current_bar.get("close", 0))
         upper_last = float(upper.iloc[-1])
         if current_close >= upper_last:
             return Signal(

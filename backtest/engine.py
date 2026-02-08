@@ -24,12 +24,14 @@ from strategies.sell.base import BaseSellStrategy
 class BacktestResult:
     """回测结果：交割单、资金曲线、绩效摘要"""
     trades: List[TradeRecord] = field(default_factory=list)
-    equity_curve: pd.DataFrame = field(default_factory=pd.DataFrame)  # date, equity
+    equity_curve: pd.DataFrame = field(default_factory=pd.DataFrame)  # date, equity, in_position
     total_return_pct: float = 0.0
     max_drawdown_pct: float = 0.0
     sharpe_ratio: float = 0.0
     initial_capital: float = 0.0
     final_capital: float = 0.0
+    holding_days: int = 0  # 有持仓的交易日天数
+    annualized_return_holding_pct: Optional[float] = None  # 按持仓时间年化收益率(%)
 
 
 class BacktestEngine:
@@ -76,6 +78,7 @@ class BacktestEngine:
         position = 0
         position_avg_cost = 0.0
         position_entry_reason = ""
+        high_since_entry = 0.0  # 买入后到当日（含）经历过的最高价，供移动止盈等使用
         trades: List[TradeRecord] = []
         equity_by_date: List[tuple] = []
 
@@ -84,6 +87,8 @@ class BacktestEngine:
             date_str = str(row["date"])
             close = float(row["close"])
             history = df.iloc[: i + 1]
+            if position > 0:
+                high_since_entry = max(high_since_entry, float(row["high"]))
 
             # 买入：全部策略都出 BUY 才触发
             buy_signals = [
@@ -93,7 +98,7 @@ class BacktestEngine:
             buy_triggered = all(s.action == SignalAction.BUY for s in buy_signals)
             buy_reason = " | ".join(s.reason for s in buy_signals) if buy_signals else ""
 
-            # 卖出：任一策略出 SELL 即触发（传入成本与现价供止损等使用）
+            # 卖出：任一策略出 SELL 即触发（传入成本、现价、买入后最高价等）
             sell_signals = [
                 s.next(
                     current_bar=row,
@@ -101,15 +106,27 @@ class BacktestEngine:
                     current_position=position,
                     position_avg_cost=position_avg_cost,
                     current_price=close,
+                    high_since_entry=high_since_entry,
                 )
                 for s in self.sell_strategies
             ]
             sell_triggered = any(s.action == SignalAction.SELL for s in sell_signals)
-            sell_reason = next((s.reason for s in sell_signals if s.action == SignalAction.SELL), "") or "信号"
+            # 多策略同时触发时，取报价最高的信号（优先止盈、避免误用止损价）
+            sell_candidates = [s for s in sell_signals if s.action == SignalAction.SELL]
+            best_sell_price: Optional[float] = None
+            if sell_candidates:
+                def _sell_price(sig):
+                    p = getattr(sig, "price", None)
+                    return float(p) if p is not None and p > 0 else 0.0
+                best_sell = max(sell_candidates, key=_sell_price)
+                sell_reason = best_sell.reason
+                best_sell_price = getattr(best_sell, "price", None)
+            else:
+                sell_reason = "信号"
 
             if buy_triggered and position >= 0:
-                # 买入：按收盘价 + 滑点，扣手续费
-                fill_price = close * (1 + self.slippage_pct)
+                # 买入：统一按收盘价
+                fill_price = close
                 size = int(cash / fill_price)  # 简单全仓一股
                 if size <= 0:
                     pass
@@ -124,6 +141,8 @@ class BacktestEngine:
                         else:
                             position_avg_cost = (position_avg_cost * position + fill_price * size) / (position + size)
                         position += size
+                        # 买入日不当日最高价计入，从下一根 bar 起再累加，避免“未真正涨过就触发移动止盈”
+                        high_since_entry = 0.0
                         rec = TradeRecord(
                             timestamp=datetime.strptime(date_str, "%Y-%m-%d"),
                             symbol=self.symbol,
@@ -141,8 +160,17 @@ class BacktestEngine:
                         trades.append(rec)
 
             elif sell_triggered and position > 0:
-                # 卖出：按收盘价 - 滑点，计算 pnl/roi
-                fill_price = close * (1 - self.slippage_pct)
+                # 卖出：多策略同时触发时已选报价最高者；价格限制在当日 bar 的 [low, high] 内
+                raw_price = best_sell_price
+                if raw_price is None or raw_price <= 0:
+                    first_sell = next((s for s in sell_signals if s.action == SignalAction.SELL), None)
+                    raw_price = getattr(first_sell, "price", None) if first_sell else None
+                if raw_price is not None and raw_price > 0:
+                    bar_low = float(row.get("low", close))
+                    bar_high = float(row.get("high", close))
+                    fill_price = max(bar_low, min(bar_high, raw_price))
+                else:
+                    fill_price = close
                 size = position  # 简单全平
                 commission = size * self.commission_per_share
                 cash += size * fill_price - commission
@@ -167,30 +195,43 @@ class BacktestEngine:
                 trades.append(rec)
                 position_avg_cost = 0.0
                 position_entry_reason = ""
+                high_since_entry = 0.0
 
-            # 资金曲线：当日收盘后权益
+            # 资金曲线：当日收盘后权益，以及当日是否持仓（用于仅按持仓期算绩效）
             equity = cash + position * close
-            equity_by_date.append((date_str, equity))
+            equity_by_date.append((date_str, equity, position > 0))
 
         final_capital = cash + position * float(df.iloc[-1]["close"])
-        equity_df = pd.DataFrame(equity_by_date, columns=["date", "equity"])
+        equity_df = pd.DataFrame(equity_by_date, columns=["date", "equity", "in_position"])
 
-        # 绩效
+        # 总收益：按整体资金曲线（最终 vs 初始），与多笔交易一致
         total_return_pct = (final_capital - self.initial_capital) / self.initial_capital * 100.0
-        max_dd = 0.0
-        peak = self.initial_capital
-        for _, eq in equity_by_date:
-            if eq > peak:
-                peak = eq
-            dd = (peak - eq) / peak * 100.0 if peak else 0.0
-            if dd > max_dd:
-                max_dd = dd
-        sharpe = 0.0
-        if len(equity_df) >= 2:
-            equity_df["ret"] = equity_df["equity"].pct_change().fillna(0)
-            std = equity_df["ret"].std()
-            if std and std > 0:
-                sharpe = (equity_df["ret"].mean() / std) * (252 ** 0.5)  # 年化
+        # 持仓天数与按持仓时间年化收益
+        holding_days = int(equity_df["in_position"].sum())
+        annualized_return_holding_pct: Optional[float] = None
+        if holding_days >= 1 and self.initial_capital > 0:
+            total_return = (final_capital - self.initial_capital) / self.initial_capital
+            # 年化 = (1 + 总收益率)^(252/持仓天数) - 1
+            annualized_return_holding_pct = ((1.0 + total_return) ** (252.0 / holding_days) - 1.0) * 100.0
+        # 最大回撤、夏普：仅使用有持仓日的序列
+        eq_in = equity_df[equity_df["in_position"]].copy()
+        if len(eq_in) < 2:
+            max_dd = 0.0
+            sharpe = 0.0
+        else:
+            max_dd = 0.0
+            peak = float(eq_in["equity"].iloc[0])
+            for _, row in eq_in.iterrows():
+                eq = float(row["equity"])
+                if eq > peak:
+                    peak = eq
+                dd = (peak - eq) / peak * 100.0 if peak else 0.0
+                if dd > max_dd:
+                    max_dd = dd
+            eq_in = eq_in.copy()
+            eq_in["ret"] = eq_in["equity"].pct_change().fillna(0)
+            std = eq_in["ret"].std()
+            sharpe = (eq_in["ret"].mean() / std) * (252 ** 0.5) if std and std > 0 else 0.0
 
         result = BacktestResult(
             trades=trades,
@@ -200,6 +241,8 @@ class BacktestEngine:
             sharpe_ratio=sharpe,
             initial_capital=self.initial_capital,
             final_capital=final_capital,
+            holding_days=holding_days,
+            annualized_return_holding_pct=annualized_return_holding_pct,
         )
         return result
 
@@ -213,7 +256,7 @@ class BacktestEngine:
         result = self.run(start=start, end=end)
         BACKTEST_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
         suffix = datetime.now().strftime("%Y%m%d_%H%M%S") if not result_id else result_id
-        filename = f"bt_{self.strategy_name}_{suffix}.csv"
+        filename = f"bt_{self.strategy_name}_{self.symbol}_{suffix}.csv"
         path = BACKTEST_RESULTS_DIR / filename
         columns = [
             "trade_id", "timestamp", "symbol", "side", "price", "quantity",

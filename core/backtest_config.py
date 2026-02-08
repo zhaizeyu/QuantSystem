@@ -1,6 +1,7 @@
 """
 回测配置：从 config/config.properties 的 default.* 读取，简洁格式。
 """
+import re
 from dataclasses import dataclass, field
 from typing import List, Optional
 
@@ -26,10 +27,11 @@ def _parse_symbols(value: Optional[str]) -> List[str]:
 
 
 def _parse_list(value: Optional[str]) -> List[str]:
-    """逗号分隔列表，去空，小写。"""
+    """逗号分隔列表（支持英文、全角逗号），去空，小写。"""
     if value is None or value.strip() == "":
         return []
-    return [s.strip().lower() for s in value.split(",") if s.strip()]
+    parts = re.split(r"[,，]", value)
+    return [s.strip().lower() for s in parts if s.strip()]
 
 
 @dataclass
@@ -45,10 +47,11 @@ class BacktestConfig:
     strategy_name: str = "Default"
     buy_strategies: List[str] = field(default_factory=list)
     sell_strategies: List[str] = field(default_factory=list)
-    fast_period: int = 5
     slow_period: int = 20
-    oversold_threshold: float = 55.0
+    rsi_period: int = 6
     stop_loss_pct: float = 8.0
+    trailing_trigger_pct: float = 2.0
+    trailing_pullback_pct: float = 5.0
 
     def __post_init__(self) -> None:
         if not self.symbols:
@@ -69,9 +72,8 @@ def get_backtest_config(
     strategy_name: Optional[str] = None,
     buy_strategies: Optional[List[str]] = None,
     sell_strategies: Optional[List[str]] = None,
-    fast_period: Optional[int] = None,
     slow_period: Optional[int] = None,
-    oversold_threshold: Optional[float] = None,
+    rsi_period: Optional[int] = None,
     stop_loss_pct: Optional[float] = None,
 ) -> BacktestConfig:
     """从 config 的 default.* 加载；传入参数可覆盖。"""
@@ -92,10 +94,11 @@ def get_backtest_config(
         strategy_name=get("default.strategy_name") or "Default",
         buy_strategies=buy_list,
         sell_strategies=sell_list,
-        fast_period=get_int("default.fast_period") or 5,
         slow_period=get_int("default.slow_period") or 20,
-        oversold_threshold=get_float("default.oversold_threshold") or 55.0,
+        rsi_period=get_int("default.rsi_period") or 6,
         stop_loss_pct=get_float("default.stop_loss_pct") or 8.0,
+        trailing_trigger_pct=get_float("default.trailing_trigger_pct") or 2.0,
+        trailing_pullback_pct=get_float("default.trailing_pullback_pct") or 5.0,
     )
     if symbols is not None:
         cfg.symbols = [s.upper() for s in symbols]
@@ -111,16 +114,14 @@ def get_backtest_config(
         cfg.commission_per_share = commission_per_share
     if strategy_name is not None:
         cfg.strategy_name = strategy_name
-    if oversold_threshold is not None:
-        cfg.oversold_threshold = oversold_threshold
     if stop_loss_pct is not None:
         cfg.stop_loss_pct = stop_loss_pct
     if buy_strategies is not None:
         cfg.buy_strategies = [s.strip().lower() for s in buy_strategies if s and str(s).strip()]
     if sell_strategies is not None:
         cfg.sell_strategies = [s.strip().lower() for s in sell_strategies if s and str(s).strip()]
-    if fast_period is not None:
-        cfg.fast_period = fast_period
     if slow_period is not None:
         cfg.slow_period = slow_period
+    if rsi_period is not None:
+        cfg.rsi_period = rsi_period
     return cfg

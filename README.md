@@ -51,15 +51,17 @@ python scripts/run_backtest.py
 
 ### 3. 启动 Web
 
-**后端**（项目根目录执行）:
+**一键起停**（项目根目录执行）:
+
+```bash
+./web/start.sh   # 启动后端 (8000) + 前端 (5173)，日志在 web/logs/
+./web/stop.sh    # 停止
+```
+
+或分别启动：
 
 ```bash
 uvicorn web.backend.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-**前端**:
-
-```bash
 cd web/frontend && npm run dev
 ```
 

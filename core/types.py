@@ -31,10 +31,11 @@ class SignalAction(str, Enum):
 
 
 class Signal(BaseModel):
-    """策略输出：只接收数据，只输出信号"""
+    """策略输出：只接收数据，只输出信号。卖出时可带 price 表示盘中卖出价，缺省则按收盘价。"""
     action: SignalAction = SignalAction.HOLD
     strength: float = Field(ge=0.0, le=1.0, description="信号强度 0.0-1.0")
     reason: str = ""  # 关键：如 "MA5_Cross_Up_MA20"
+    price: Optional[float] = None  # 卖出时可选：盘中卖出价，仅 SELL 时有效
 
 
 # ----- TradeRecord (详细交割单 - 回测与实盘共用) -----
