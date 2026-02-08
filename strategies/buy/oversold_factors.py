@@ -69,17 +69,21 @@ class OversoldFactorsBuyStrategy(BaseBuyStrategy):
         else:
             if hist > 0:
                 return self._hold("红柱缩短不买")
-            recent = hist_series.iloc[-6:].dropna()
-            if len(recent) < 2:
-                return self._hold("绿柱变长不买")
-            recent_min = float(recent.min())
-            recent_max = float(recent.max())
-            if recent_max - recent_min < 1e-10:
-                near_trough = True
+            # RSI 极超卖（如 <15）时放宽：绿柱变长也允许买，避免错过明显超跌
+            if float(rsi_val) < 15:
+                pass
             else:
-                near_trough = hist <= recent_min + 0.2 * (recent_max - recent_min)
-            if not near_trough:
-                return self._hold("绿柱变长且未靠近峰值不买")
+                recent = hist_series.iloc[-6:].dropna()
+                if len(recent) < 2:
+                    return self._hold("绿柱变长不买")
+                recent_min = float(recent.min())
+                recent_max = float(recent.max())
+                if recent_max - recent_min < 1e-10:
+                    near_trough = True
+                else:
+                    near_trough = hist <= recent_min + 0.2 * (recent_max - recent_min)
+                if not near_trough:
+                    return self._hold("绿柱变长且未靠近峰值不买")
 
         reason = (
             f"超跌买入(价<MA5/10/20 RSI<20 柱线条件满足)"

@@ -4,14 +4,16 @@
 - strategies/sell/ 仅输出 SELL 或 HOLD
 """
 from strategies.base import BaseStrategy
-from strategies.buy import BaseBuyStrategy, MACrossBuyStrategy, OversoldFactorsBuyStrategy
-from strategies.sell import BaseSellStrategy, MACrossSellStrategy
+from strategies.buy import BaseBuyStrategy, BollTrendPullbackBuyStrategy, OversoldFactorsBuyStrategy
+from strategies.sell import BaseSellStrategy, BollUpperBreakSellStrategy, StopLossPctSellStrategy, TrailingTakeProfitSellStrategy
 
 __all__ = [
     "BaseStrategy",
     "BaseBuyStrategy",
     "BaseSellStrategy",
-    "MACrossBuyStrategy",
-    "MACrossSellStrategy",
+    "BollTrendPullbackBuyStrategy",
+    "BollUpperBreakSellStrategy",
     "OversoldFactorsBuyStrategy",
+    "StopLossPctSellStrategy",
+    "TrailingTakeProfitSellStrategy",
 ]

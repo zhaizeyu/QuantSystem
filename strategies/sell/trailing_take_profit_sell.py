@@ -1,15 +1,20 @@
-"""移动止盈：盈利超过成本 2% 后进入监控，止盈价 = max((成本+最高价)/2, 最高价×95%) 且不低于成本，盘中触及则按该价卖出。"""
+"""移动止盈：止盈价按「昨日及之前」最高价计算，仅在次日生效，当天不触发卖出。"""
 from typing import Any
+
 import pandas as pd
+
 from core.types import Signal, SignalAction
 from strategies.sell.base import BaseSellStrategy
 
 
 class TrailingTakeProfitSellStrategy(BaseSellStrategy):
+    """
+    固定回落止盈，次日生效：用「买入日至昨日」的最高价算出止盈价，仅在今日检查是否触及。
+    止盈价 = 昨日及之前最高价 × (1 - pullback_pct%)，今日最低价触及则卖；当天买入当天不生效。
+    """
     name = "trailing_take_profit_sell"
 
-    def __init__(self, trigger_pct: float = 2.0, pullback_pct: float = 5.0) -> None:
-        self.trigger_pct = trigger_pct
+    def __init__(self, pullback_pct: float = 5.0, **kwargs: Any) -> None:
         self.pullback_pct = pullback_pct
 
     def next(
@@ -21,28 +26,17 @@ class TrailingTakeProfitSellStrategy(BaseSellStrategy):
     ) -> Signal:
         if current_position <= 0:
             return self._hold("空仓")
-        cost = kwargs.get("position_avg_cost") or 0.0
-        current_price = kwargs.get("current_price")
-        if current_price is None:
-            current_price = float(current_bar.get("close", 0))
-        high_since_entry = kwargs.get("high_since_entry")
-        if high_since_entry is None or high_since_entry <= 0:
-            high_since_entry = float(current_bar.get("high", current_price))
-        if cost <= 0:
-            return self._hold("无成本价")
-        # 用「买入后最高价」判断是否曾达到监控阈值，避免回落后误退出监控
-        if high_since_entry < cost * (1 + self.trigger_pct / 100.0):
-            return self._hold("未达监控阈值")
-        high = high_since_entry
-        low = float(current_bar.get("low", current_price))
-        midpoint = (cost + high) * 0.5
-        trail_price = high * (1 - self.pullback_pct / 100.0)
-        exit_price = max(cost, max(midpoint, trail_price))  # 止盈价 = max((成本+最高价)/2, 最高价×95%)，且不低于成本
+        # 用「昨日收盘前」的最高价算止盈价，今日才生效，避免当天买卖同一天触发
+        high_prev = kwargs.get("high_since_entry_prev")
+        if high_prev is None or high_prev <= 0:
+            return self._hold("止盈价未就绪(需昨日最高价)")
+        exit_price = high_prev * (1.0 - self.pullback_pct / 100.0)
+        low = float(current_bar.get("low", 0))
         if low <= exit_price:
             return Signal(
                 action=SignalAction.SELL,
                 strength=1.0,
-                reason="移动止盈",
+                reason="移动止盈(固定回落%.1f%%)" % self.pullback_pct,
                 price=exit_price,
             )
         return self._hold("未触及止盈价")

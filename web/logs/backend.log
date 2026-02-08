@@ -1476,3 +1476,421 @@ INFO:     Finished server process [72238]
 INFO:     Started server process [72258]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/properties_loader.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [72258]
+INFO:     Started server process [77671]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77671]
+INFO:     Started server process [77682]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77682]
+INFO:     Started server process [77694]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77694]
+INFO:     Started server process [77711]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [77711]
+INFO:     Started server process [78027]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78027]
+INFO:     Started server process [78197]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78197]
+INFO:     Started server process [78273]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/boll_rebound_buy.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78273]
+INFO:     Started server process [79822]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79822]
+INFO:     Started server process [79840]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/factory.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79840]
+INFO:     Started server process [79863]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/__init__.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79863]
+INFO:     Started server process [79963]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:64049 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64051 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64050 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64053 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64055 - "GET /api/backtest/detail/bt_Default_XBI_20260208_123822.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64057 - "GET /api/market/kline/XBI HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64112 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64113 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64114 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64116 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64118 - "GET /api/backtest/detail/bt_Default_PORTFOLIO_20260208_124318.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64120 - "GET /api/market/kline/GOOGL HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79963]
+INFO:     Started server process [88497]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:64255 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64257 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64256 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64259 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64261 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_125451.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64263 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88497]
+INFO:     Started server process [43646]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43646]
+INFO:     Started server process [43662]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43662]
+INFO:     Started server process [43674]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'scripts/run_backtest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43674]
+INFO:     Started server process [43773]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43773]
+INFO:     Started server process [44011]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['/Users/zhaizeyu/Documents/github/QuantSystem']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [45386] using WatchFiles
+INFO:     Started server process [45392]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:65080 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65082 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65081 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65084 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65103 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65104 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65105 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65107 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65109 - "GET /api/backtest/detail/bt_Default_TSLA_20260208_151826.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65111 - "GET /api/market/kline/TSLA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65143 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65144 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65145 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65147 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65149 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_152007.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65151 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65157 - "GET /api/backtest/detail/bt_Default_QQQ_20260208_152007.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65159 - "GET /api/market/kline/QQQ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65305 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65306 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65307 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65309 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49818 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_152007.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49820 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49945 - "GET /api/backtest/detail/bt_Default_QQQ_20260208_152007.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49947 - "GET /api/market/kline/QQQ HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [45392]
+INFO:     Started server process [96064]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96064]
+INFO:     Started server process [96092]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96092]
+INFO:     Started server process [96200]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50024 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50026 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50025 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50028 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50030 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_174841.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50032 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/ma_cross.py', 'strategies/sell/ma_cross.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96200]
+INFO:     Started server process [99261]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/__init__.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99261]
+INFO:     Started server process [99301]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/sell/__init__.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99301]
+INFO:     Started server process [99328]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/__init__.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99328]
+INFO:     Started server process [99372]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'live/trader.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99372]
+INFO:     Started server process [99380]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'live/trader.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99380]
+INFO:     Started server process [99408]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99408]
+INFO:     Started server process [318]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50117 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50119 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50118 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50121 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50123 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_175353.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50125 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [318]
+INFO:     Started server process [1341]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50147 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50149 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50148 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50151 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50153 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_175522.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50155 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/buy/oversold_factors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1341]
+INFO:     Started server process [2896]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50242 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50244 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50243 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50246 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50248 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_180634.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50250 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2896]
+INFO:     Started server process [9850]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9850]
+INFO:     Started server process [10277]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [10277]
+INFO:     Started server process [10915]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [10915]
+INFO:     Started server process [11182]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/backtest_config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11182]
+INFO:     Started server process [11847]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11847]
+INFO:     Started server process [11900]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11900]
+INFO:     Started server process [11915]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11915]
+INFO:     Started server process [11928]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'backtest/engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11928]
+INFO:     Started server process [11948]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50729 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50731 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50730 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50733 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50735 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_191700.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50737 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11948]
+INFO:     Started server process [37646]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50819 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50821 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50820 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50823 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50825 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_192441.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50827 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'strategies/sell/trailing_take_profit_sell.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37646]
+INFO:     Started server process [40583]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50873 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50875 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50874 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50877 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50879 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_192901.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50881 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50935 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50936 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50937 - "GET /api/backtest/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50939 - "GET /api/market/kline/AAPL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50941 - "GET /api/backtest/detail/bt_Default_NVDA_20260208_193258.csv HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50943 - "GET /api/market/kline/NVDA HTTP/1.1" 200 OK

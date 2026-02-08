@@ -5,7 +5,6 @@
 from typing import List
 
 from strategies.buy.base import BaseBuyStrategy
-from strategies.buy.boll_rebound_buy import BollReboundBuyStrategy
 from strategies.buy.boll_trend_pullback_buy import BollTrendPullbackBuyStrategy
 from strategies.buy.oversold_factors import OversoldFactorsBuyStrategy
 from strategies.sell.base import BaseSellStrategy
@@ -22,7 +21,7 @@ def create_buy_strategies(
     names: List[str],
     rsi_period: int = 6,
 ) -> List[BaseBuyStrategy]:
-    """根据名称列表创建买入策略。支持 oversold_score_buy、boll_rebound_buy、boll_trend_pullback_buy。"""
+    """根据名称列表创建买入策略。支持 oversold_score_buy、boll_trend_pullback_buy。"""
     out: List[BaseBuyStrategy] = []
     for n in names:
         n = _norm(n)
@@ -30,8 +29,6 @@ def create_buy_strategies(
             continue
         if n == "oversold_score_buy":
             out.append(OversoldFactorsBuyStrategy(rsi_period=rsi_period))
-        elif n == "boll_rebound_buy":
-            out.append(BollReboundBuyStrategy())
         elif n == "boll_trend_pullback_buy":
             out.append(BollTrendPullbackBuyStrategy())
     return out

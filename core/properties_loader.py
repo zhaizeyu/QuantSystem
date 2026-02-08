@@ -63,3 +63,11 @@ def get_float(key: str, default: Optional[float] = None) -> Optional[float]:
         return float(v)
     except ValueError:
         return default
+
+
+def get_bool(key: str, default: bool = False) -> bool:
+    """true/1/yes 为 True，其余为 False。"""
+    v = get(key)
+    if v is None:
+        return default
+    return str(v).strip().lower() in ("true", "1", "yes")

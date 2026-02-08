@@ -87,6 +87,8 @@ class BacktestEngine:
             date_str = str(row["date"])
             close = float(row["close"])
             history = df.iloc[: i + 1]
+            # 移动止盈用「买入日至昨日」最高价给今日设止盈价，故先保留昨日最高再更新
+            high_since_entry_prev = high_since_entry
             if position > 0:
                 high_since_entry = max(high_since_entry, float(row["high"]))
 
@@ -98,7 +100,7 @@ class BacktestEngine:
             buy_triggered = all(s.action == SignalAction.BUY for s in buy_signals)
             buy_reason = " | ".join(s.reason for s in buy_signals) if buy_signals else ""
 
-            # 卖出：任一策略出 SELL 即触发（传入成本、现价、买入后最高价等）
+            # 卖出：任一策略出 SELL 即触发（传入成本、现价、买入后最高价等；high_since_entry_prev 供移动止盈「给第二天设止盈」用）
             sell_signals = [
                 s.next(
                     current_bar=row,
@@ -107,6 +109,7 @@ class BacktestEngine:
                     position_avg_cost=position_avg_cost,
                     current_price=close,
                     high_since_entry=high_since_entry,
+                    high_since_entry_prev=high_since_entry_prev,
                 )
                 for s in self.sell_strategies
             ]

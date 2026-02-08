@@ -84,13 +84,15 @@ def get_backtest_config(
     if not sell_list:
         sell_list = ["stop_loss_8pct_sell"]
 
+    _commission = get_float("default.commission_per_share")
+    _slippage = get_float("default.slippage_pct")
     cfg = BacktestConfig(
         symbols=_parse_symbols(get("default.symbols")),
         start_date=get("default.start_date") or None,
         end_date=get("default.end_date") or None,
         initial_capital=get_float("default.initial_capital") or 100_000.0,
-        slippage_pct=get_float("default.slippage_pct") or 0.001,
-        commission_per_share=get_float("default.commission_per_share") or 0.005,
+        slippage_pct=_slippage if _slippage is not None else 0.001,
+        commission_per_share=_commission if _commission is not None else 0.005,
         strategy_name=get("default.strategy_name") or "Default",
         buy_strategies=buy_list,
         sell_strategies=sell_list,

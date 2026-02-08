@@ -12,8 +12,8 @@ sys.path.insert(0, str(ROOT))
 from core.config import LIVE_STATE_DIR, LIVE_STATE_EXPORT_INTERVAL
 from data.loader import append_bars, get_bars
 from skills import ib_client
-from strategies.buy import MACrossBuyStrategy
-from strategies.sell import MACrossSellStrategy
+from strategies.buy import OversoldFactorsBuyStrategy
+from strategies.sell import StopLossPctSellStrategy
 
 
 def export_state() -> None:
@@ -36,8 +36,8 @@ def run_once(symbol: str = "AAPL") -> None:
     if df is not None and not df.empty:
         append_bars(symbol, df)
     # 策略（此处仅示例：不实际下单，仅导出状态）
-    buy_strategy = MACrossBuyStrategy(5, 20)
-    sell_strategy = MACrossSellStrategy(5, 20)
+    buy_strategy = OversoldFactorsBuyStrategy(rsi_period=6)
+    sell_strategy = StopLossPctSellStrategy(stop_loss_pct=10.0)
     bars = get_bars(symbol)
     if len(bars) >= 20:
         last = bars.iloc[-1]
