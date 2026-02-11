@@ -1,6 +1,5 @@
 """
-超跌买入策略：收盘价小于 MA5/MA10/MA20，且 RSI<20，且满足 MACD 绿柱且快线上升时买入。
-- 仅当 MACD 柱线为绿柱（hist < 0）且 DIF（快线）较前一根上升时才允许买入。
+超跌买入策略：收盘价小于 MA5/MA10/MA20，且 RSI<20，且 MACD 为绿柱时买入。
 """
 from typing import Any
 
@@ -16,7 +15,7 @@ class OversoldFactorsBuyStrategy(BaseBuyStrategy):
     超跌买入：同时满足以下三条才买入，否则不买。
     1. 收盘价 < MA5 且 收盘价 < MA10 且 收盘价 < MA20
     2. RSI < 20
-    3. MACD 为绿柱（hist < 0）且 DIF（快线）上升（dif[t] > dif[t-1]）。
+    3. MACD 为绿柱（hist < 0）。
     """
 
     name = "oversold_score_buy"
@@ -56,20 +55,16 @@ class OversoldFactorsBuyStrategy(BaseBuyStrategy):
         if pd.isna(rsi_val) or float(rsi_val) >= 20:
             return self._hold("RSI不小于20")
 
-        dif_series, _, hist_series = macd(close, 12, 26, 9)
-        if len(hist_series) < 2 or len(dif_series) < 2:
+        _, _, hist_series = macd(close, 12, 26, 9)
+        if len(hist_series) < 1:
             return self._hold("MACD未就绪")
         hist = float(hist_series.iloc[-1])
-        dif = float(dif_series.iloc[-1])
-        dif_prev = float(dif_series.iloc[-2])
-        if pd.isna(hist) or pd.isna(dif) or pd.isna(dif_prev):
+        if pd.isna(hist):
             return self._hold("MACD未就绪")
         if hist >= 0:
             return self._hold("MACD非绿柱不买")
-        if dif <= dif_prev:
-            return self._hold("MACD快线未上升不买")
 
         reason = (
-            f"超跌买入(价<MA5/10/20 RSI<20 MACD绿柱且快线上升)"
+            f"超跌买入(价<MA5/10/20 RSI<20 MACD绿柱)"
         )
         return Signal(action=SignalAction.BUY, strength=1.0, reason=reason)

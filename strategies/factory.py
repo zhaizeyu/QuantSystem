@@ -1,6 +1,6 @@
 """
 策略工厂：根据配置名称创建买入/卖出策略实例。
-买入：oversold_score_buy（超卖）；卖出：stop_loss_8pct_sell（止损）、boll_upper_break_sell（突破上布林带）。
+买入：oversold_score_buy（超卖）；卖出：stop_loss_8pct_sell（止损）、trailing_take_profit_sell（移动止盈）、boll_upper_break_sell（突破上布林带）、two_day_no_profit_sell（两天不盈利卖出）。
 """
 from typing import List
 
@@ -11,6 +11,7 @@ from strategies.sell.base import BaseSellStrategy
 from strategies.sell.boll_upper_break_sell import BollUpperBreakSellStrategy
 from strategies.sell.stop_loss_pct import StopLossPctSellStrategy
 from strategies.sell.trailing_take_profit_sell import TrailingTakeProfitSellStrategy
+from strategies.sell.two_day_no_profit_sell import TwoDayNoProfitSellStrategy
 
 
 def _norm(name: str) -> str:
@@ -41,7 +42,7 @@ def create_sell_strategies(
     trailing_trigger_pct: float = 2.0,
     trailing_pullback_pct: float = 5.0,
 ) -> List[BaseSellStrategy]:
-    """根据名称列表创建卖出策略。支持 stop_loss_8pct_sell、boll_upper_break_sell、trailing_take_profit_sell。"""
+    """根据名称列表创建卖出策略。支持 stop_loss_8pct_sell、boll_upper_break_sell、trailing_take_profit_sell、two_day_no_profit_sell。"""
     out: List[BaseSellStrategy] = []
     for n in names:
         n = _norm(n)
@@ -58,4 +59,6 @@ def create_sell_strategies(
                     pullback_pct=trailing_pullback_pct,
                 )
             )
+        elif n == "two_day_no_profit_sell":
+            out.append(TwoDayNoProfitSellStrategy(min_hold_days=2))
     return out
