@@ -79,6 +79,7 @@ class BacktestEngine:
         position_avg_cost = 0.0
         position_entry_reason = ""
         high_since_entry = 0.0  # 买入后到当日（含）经历过的最高价，供移动止盈等使用
+        holding_days_since_entry = 0  # 买入当日为 0，下一交易日为 1
         trades: List[TradeRecord] = []
         equity_by_date: List[tuple] = []
 
@@ -91,6 +92,7 @@ class BacktestEngine:
             high_since_entry_prev = high_since_entry
             if position > 0:
                 high_since_entry = max(high_since_entry, float(row["high"]))
+                holding_days_since_entry += 1
 
             # 买入：全部策略都出 BUY 才触发
             buy_signals = [
@@ -110,6 +112,7 @@ class BacktestEngine:
                     current_price=close,
                     high_since_entry=high_since_entry,
                     high_since_entry_prev=high_since_entry_prev,
+                    holding_days_since_entry=holding_days_since_entry,
                 )
                 for s in self.sell_strategies
             ]
@@ -146,6 +149,7 @@ class BacktestEngine:
                         position += size
                         # 买入日不当日最高价计入，从下一根 bar 起再累加，避免“未真正涨过就触发移动止盈”
                         high_since_entry = 0.0
+                        holding_days_since_entry = 0
                         rec = TradeRecord(
                             timestamp=datetime.strptime(date_str, "%Y-%m-%d"),
                             symbol=self.symbol,
@@ -199,6 +203,7 @@ class BacktestEngine:
                 position_avg_cost = 0.0
                 position_entry_reason = ""
                 high_since_entry = 0.0
+                holding_days_since_entry = 0
 
             # 资金曲线：当日收盘后权益，以及当日是否持仓（用于仅按持仓期算绩效）
             equity = cash + position * close
