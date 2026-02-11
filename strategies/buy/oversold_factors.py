@@ -1,7 +1,6 @@
 """
-超跌买入策略：收盘价小于 MA5/MA10/MA20，且 RSI<20，且满足 MACD 柱线条件时买入。
-- 红柱 = MACD 柱线 > 0；红柱缩短 = hist < 前一根 hist → 不买。
-- 绿柱变长 = hist < 0 且 hist < 前一根 → 不买；但若已靠近峰值（近期柱线谷底）则允许买。
+超跌买入策略：收盘价小于 MA5/MA10/MA20，且 RSI<20，且满足 MACD 绿柱且快线上升时买入。
+- 仅当 MACD 柱线为绿柱（hist < 0）且 DIF（快线）较前一根上升时才允许买入。
 """
 from typing import Any
 
@@ -17,7 +16,7 @@ class OversoldFactorsBuyStrategy(BaseBuyStrategy):
     超跌买入：同时满足以下三条才买入，否则不买。
     1. 收盘价 < MA5 且 收盘价 < MA10 且 收盘价 < MA20
     2. RSI < 20
-    3. 不是红柱缩短；绿柱变长时不买，但绿柱已靠近峰值（近期谷底）时可买。
+    3. MACD 为绿柱（hist < 0）且 DIF（快线）上升（dif[t] > dif[t-1]）。
     """
 
     name = "oversold_score_buy"
@@ -57,35 +56,20 @@ class OversoldFactorsBuyStrategy(BaseBuyStrategy):
         if pd.isna(rsi_val) or float(rsi_val) >= 20:
             return self._hold("RSI不小于20")
 
-        _, _, hist_series = macd(close, 12, 26, 9)
-        if len(hist_series) < 2:
-            return self._hold("MACD柱线未就绪")
+        dif_series, _, hist_series = macd(close, 12, 26, 9)
+        if len(hist_series) < 2 or len(dif_series) < 2:
+            return self._hold("MACD未就绪")
         hist = float(hist_series.iloc[-1])
-        hist_prev = float(hist_series.iloc[-2])
-        if pd.isna(hist) or pd.isna(hist_prev):
-            return self._hold("MACD柱线未就绪")
-        if hist >= hist_prev:
-            pass
-        else:
-            if hist > 0:
-                return self._hold("红柱缩短不买")
-            # RSI 极超卖（如 <15）时放宽：绿柱变长也允许买，避免错过明显超跌
-            if float(rsi_val) < 15:
-                pass
-            else:
-                recent = hist_series.iloc[-6:].dropna()
-                if len(recent) < 2:
-                    return self._hold("绿柱变长不买")
-                recent_min = float(recent.min())
-                recent_max = float(recent.max())
-                if recent_max - recent_min < 1e-10:
-                    near_trough = True
-                else:
-                    near_trough = hist <= recent_min + 0.2 * (recent_max - recent_min)
-                if not near_trough:
-                    return self._hold("绿柱变长且未靠近峰值不买")
+        dif = float(dif_series.iloc[-1])
+        dif_prev = float(dif_series.iloc[-2])
+        if pd.isna(hist) or pd.isna(dif) or pd.isna(dif_prev):
+            return self._hold("MACD未就绪")
+        if hist >= 0:
+            return self._hold("MACD非绿柱不买")
+        if dif <= dif_prev:
+            return self._hold("MACD快线未上升不买")
 
         reason = (
-            f"超跌买入(价<MA5/10/20 RSI<20 柱线条件满足)"
+            f"超跌买入(价<MA5/10/20 RSI<20 MACD绿柱且快线上升)"
         )
         return Signal(action=SignalAction.BUY, strength=1.0, reason=reason)
