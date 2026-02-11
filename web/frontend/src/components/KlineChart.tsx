@@ -81,6 +81,12 @@ export default function KlineChart({ data, markers = [] }: KlineChartProps) {
 
     const charts: IChartApi[] = [];
 
+    const panelRefMap = {
+      main: mainRef.current,
+      rsi: rsiRef.current,
+      macd: macdRef.current,
+    } as const;
+
     // 主图 K 线
     const mainChart = createChart(mainRef.current, {
       ...CHART_OPTIONS,
@@ -303,7 +309,10 @@ export default function KlineChart({ data, markers = [] }: KlineChartProps) {
     }
 
     const tooltipEl = tooltipRef.current;
-    const onCrosshairMove = (param: { time?: string; point?: { x: number; y: number } }) => {
+    const onCrosshairMove = (
+      panel: keyof typeof panelRefMap,
+      param: { time?: string; point?: { x: number; y: number } }
+    ) => {
       if (!tooltipEl || !param.point || param.time == null) {
         tooltipEl?.classList.add("opacity-0");
         return;
@@ -335,17 +344,28 @@ export default function KlineChart({ data, markers = [] }: KlineChartProps) {
         `<div class="flex justify-between gap-4"><span class="text-slate-400">MACD</span><span>${fmt(hist[idx], 4)}</span></div>`,
       ];
       tooltipEl.innerHTML = rows.join("");
-      const rect = mainRef.current?.getBoundingClientRect();
+      const rect = panelRefMap[panel]?.getBoundingClientRect();
       if (rect) {
         tooltipEl.style.left = `${rect.left + param.point!.x + 12}px`;
         tooltipEl.style.top = `${rect.top + param.point!.y + 8}px`;
       }
       tooltipEl.classList.remove("opacity-0");
     };
-    mainChart.subscribeCrosshairMove(onCrosshairMove);
+    const mainCrosshairHandler = (param: { time?: string; point?: { x: number; y: number } }) =>
+      onCrosshairMove("main", param);
+    const rsiCrosshairHandler = (param: { time?: string; point?: { x: number; y: number } }) =>
+      onCrosshairMove("rsi", param);
+    const macdCrosshairHandler = (param: { time?: string; point?: { x: number; y: number } }) =>
+      onCrosshairMove("macd", param);
+
+    mainChart.subscribeCrosshairMove(mainCrosshairHandler);
+    if (charts[1]) charts[1].subscribeCrosshairMove(rsiCrosshairHandler);
+    if (charts[2]) charts[2].subscribeCrosshairMove(macdCrosshairHandler);
 
     return () => {
-      mainChart.unsubscribeCrosshairMove(onCrosshairMove);
+      mainChart.unsubscribeCrosshairMove(mainCrosshairHandler);
+      if (charts[1]) charts[1].unsubscribeCrosshairMove(rsiCrosshairHandler);
+      if (charts[2]) charts[2].unsubscribeCrosshairMove(macdCrosshairHandler);
       charts.forEach((c) => c.remove());
       chartsRef.current = [];
     };
