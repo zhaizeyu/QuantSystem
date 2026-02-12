@@ -13,6 +13,8 @@ from strategies.sell.boll_upper_break_sell import BollUpperBreakSellStrategy
 from strategies.sell.stop_loss_pct import StopLossPctSellStrategy
 from strategies.sell.trailing_take_profit_sell import TrailingTakeProfitSellStrategy
 from strategies.sell.two_day_no_profit_sell import TwoDayNoProfitSellStrategy
+from strategies.sell.dif_next_day_weaker_sell import DifNextDayWeakerSellStrategy
+from strategies.sell.first_red_hist_shrink_sell import FirstRedHistShrinkSellStrategy
 
 
 def _norm(name: str) -> str:
@@ -45,7 +47,7 @@ def create_sell_strategies(
     trailing_trigger_pct: float = 2.0,
     trailing_pullback_pct: float = 5.0,
 ) -> List[BaseSellStrategy]:
-    """根据名称列表创建卖出策略。支持 stop_loss_8pct_sell、boll_upper_break_sell、trailing_take_profit_sell、two_day_no_profit_sell。"""
+    """根据名称列表创建卖出策略。支持 stop_loss_8pct_sell、boll_upper_break_sell、trailing_take_profit_sell、two_day_no_profit_sell、dif_next_day_weaker_sell、first_red_hist_shrink_sell。"""
     out: List[BaseSellStrategy] = []
     for n in names:
         n = _norm(n)
@@ -64,4 +66,8 @@ def create_sell_strategies(
             )
         elif n == "two_day_no_profit_sell":
             out.append(TwoDayNoProfitSellStrategy(min_hold_days=2))
+        elif n == "dif_next_day_weaker_sell":
+            out.append(DifNextDayWeakerSellStrategy())
+        elif n == "first_red_hist_shrink_sell":
+            out.append(FirstRedHistShrinkSellStrategy())
     return out
