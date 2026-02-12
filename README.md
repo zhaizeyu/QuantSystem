@@ -20,7 +20,7 @@
 ├── skills/           # IB 客户端
 ├── data/             # 数据加载与更新
 ├── strategies/       # 策略（分买入/卖出，多策略可组合）
-│   ├── buy/          # 买入策略 (仅 BUY/HOLD)，如 oversold_score_buy
+│   ├── buy/          # 买入策略 (仅 BUY/HOLD)，如 oversold_score_buy, oversold_rebound_buy
 │   └── sell/         # 卖出策略 (仅 SELL/HOLD)，如 stop_loss_8pct_sell, boll_upper_break_sell
 ├── backtest/         # 回测引擎
 ├── live/             # 实盘守护进程
@@ -42,6 +42,7 @@ cd web/frontend && npm install
 
 **配置** 在 **`config/config.properties`**（`default.*` / `available.*` 格式）：
 - **default.buy**：买入策略，逗号分隔，需**全部命中**才买；当前为 `oversold_score_buy`（超卖买入）。
+- **available.buy**：可选买入策略包含 `oversold_score_buy`、`oversold_rebound_buy`（RSI超卖拐头+MACD绿柱缩短+DIF转折）、`boll_trend_pullback_buy`。
 - **default.sell**：卖出策略，逗号分隔，**任一命中**即卖；当前为 `stop_loss_8pct_sell`（固定比例止损）、`trailing_take_profit_sell`（移动止盈）、`boll_upper_break_sell`（突破上布林带）、`two_day_no_profit_sell`（买入后两天不盈利卖出）。
 - **default.start_date** / **default.end_date**：回测区间。
 
