@@ -43,7 +43,7 @@ cd web/frontend && npm install
 **配置** 在 **`config/config.properties`**（`default.*` / `available.*` 格式）：
 - **default.buy**：买入策略，逗号分隔，需**全部命中**才买；当前为 `oversold_score_buy`（超卖买入）。
 - **available.buy**：可选买入策略包含 `oversold_score_buy`、`oversold_rebound_buy`（RSI超卖拐头+MACD绿柱缩短+DIF转折）、`boll_trend_pullback_buy`。
-- **default.sell**：卖出策略，逗号分隔，**任一命中**即卖；当前为 `stop_loss_8pct_sell`（固定比例止损）、`trailing_take_profit_sell`（移动止盈）、`boll_upper_break_sell`（突破上布林带）、`two_day_no_profit_sell`（买入后两天不盈利卖出）。
+- **default.sell**：卖出策略，逗号分隔，**任一命中**即卖；当前为 `stop_loss_8pct_sell`（固定比例止损）、`trailing_take_profit_sell`（移动止盈）、`boll_upper_break_sell`（突破上布林带）、`two_day_no_profit_sell`（买入后两天不盈利卖出）、`dif_next_day_weaker_sell`（买入次日 DIF 弱于买入日卖出）、`first_red_hist_shrink_sell`（买入后首次 MACD 红柱缩小卖出）。
 - **default.start_date** / **default.end_date**：回测区间。
 
 ```bash
